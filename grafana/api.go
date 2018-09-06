@@ -168,7 +168,7 @@ func (g client) getPanelURL(p Panel, dashName string, t TimeRange) string {
                 values.Add("height", "1250")
 	} else {
 		values.Add("width", "1000")
-		values.Add("height", "500")
+		values.Add("height", "1200")
 	}
 
 	for k, v := range g.variables {
