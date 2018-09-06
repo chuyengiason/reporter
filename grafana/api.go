@@ -153,7 +153,7 @@ func (g client) GetPanelPng(p Panel, dashName string, t TimeRange) (io.ReadClose
 
 func (g client) getPanelURL(p Panel, dashName string, t TimeRange) string {
 	values := url.Values{}
-	values.Add("theme", "light")
+	values.Add("theme", "dark")
 	values.Add("panelId", strconv.Itoa(p.Id))
 	values.Add("from", t.From)
 	values.Add("to", t.To)
@@ -163,6 +163,9 @@ func (g client) getPanelURL(p Panel, dashName string, t TimeRange) string {
 	} else if p.Is(Text) {
 		values.Add("width", "1000")
 		values.Add("height", "100")
+	} else if p.Is(Table) {
+                values.Add("width", "1000")
+                values.Add("height", "1250")
 	} else {
 		values.Add("width", "1000")
 		values.Add("height", "500")
